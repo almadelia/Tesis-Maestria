@@ -1,0 +1,35 @@
+
+\chapter{Conclusiones Generales y Estudios Futuros}
+
+\noindent El objetivo principal de este trabajo, fue proponer una pol\'itica de inventario de transformadores de instrumento, empleando herramientas de estad\'istica Bayesiana. La importancia de desarrollar esta pol\'itica, se debe a que los transformadores de instrumento son objetos de medici\'on costosos y se adquieren bajo pedido. La mayor\'ia de las veces, las  empresas que necesitan estos transformadores, observan aproximadamente cuantos de sus equipos fallar\'an en un cierto periodo de tiempo, para fijar la cantidad que tendr\'an en el almac\'en o inventariados. Sin embargo no se centran en minimizar los costos generados durante el periodo de observaci\'on. Este trabajo tuvo como finalidad minimizar estos costos.\\[0.1cm]
+A continaci\'on  se mencionan los aspectos m\'as relevantes aportados dentro de esta tesina.
+\begin{itemize}
+\item[-] La manera de abordar el problema de inventario fue mediante el empleo de estad\'istica Bayesiana, asign\'andole una distribuci\'on de probabilidad a los par\'ametros de la distribuci\'on de los tiempos de vida (Weibull).
+
+
+\noindent Para realizar estad\'istica Bayesiana, necesitamos establecer distribuciones a priories para los par\'ametros. En la literatura, la determinaci\'on de ellas usualmente no se explica, se menciona que debe ser construida en base al conocimiento previo del experto, pero no se detalla la manera de modelar este conocimiento a priori en una distribuci\'on de probabilidad.
+En esta tesina se explica de manera detallada un m\'etodo para establecer y modelar estas distribuciones a priories. 
+\item[-] El tiempo de vida de los transformadores es una variable aleatoria, por lo tanto, no se sabr\'a exactamente cu\'antos transformadores fallar\'an en cierto intervalo de tiempo.
+
+\noindent Para proponer la pol\'itica de almacenamiento o inventario, es necesario establecer una funci\'on de p\'erdida que  refleje los costos de p\'erdidas asociados al inventario. Sin embargo esta funci\'on depender\'a de la variable aleatoria que describe los tiempos de vida de los transformadores, as\'i que para establecer la  pol\'itica de almacenamiento \'optima, se  centr\'o en la minimizaci\'on del valor esperado de la funci\'on de p\'erdida, por lo que se plantearon algunas funciones de p\'erdida para describir las p\'erdidas monetarias de la empresa. Adem\'as se detall\'o la manera de construir y evaluar estas funciones. Dado que al evaluarlas se tienen aspectos aleatorios, se realizaron simulaciones, las cuales permitieron observa el fen\'omeno de las fallas a lo largo de cierto tiempo y posteriormente obtener la p\'erdida esperada.
+El procedimiento expuesto tambi\'en puede adaptarse a otros problemas de inventario.
+\end{itemize}
+
+\section{Trabajo a futuro}
+
+\noindent La estad\'istica Bayesiana en el presente es de gran utilidad. Siempre existe la inquietud de lo que pasar\'ia si otras distribuciones iniciales, fueran consideradas. Ser\'ia interesante explorar otros m\'etodos para el establecimiento de las distribuciones a priori, tales como distribuciones uniforme o no informativas. Una vez estableciendo estas distribuciones a priories comparar los resultados con los obtenidos en esta tesina.\\
+
+
+\noindent En la mayor\'ia de las ocasiones, la distribuci\'on posterior para los par\'ametros resulta una  expresi\'on compleja y dif\'icil de evaluar, de ah\'i la importancia del desarrollo de los algoritmos MCMC. Los algoritmos MCMC varian dependiendo de su construcci\'on. El empleado en esta tesina fue un algoritmo Metropolis-Hasting. Un trabajo a futuro es realizar la construcci\'on de un algoritmo Gibbs Sampling o la implementaci\'on de un Metropolis-Hasting con alguna distribuci\'on propuesta que utilice condiciones del fen\'omeno a modelar.
+
+\noindent Finalmente conocer m\'as aspectos sobre las pol\'iticas de inventario de las empresas que se dedican a cobrar el servicio de electricidad, ayudar\'a a determinar una funci\'on de p\'erdida m\'as completa, en el sentido de considerar todos los costos involucrados en el inventario. Un aspecto interesante ser\'ia realizar la propuesta sobre la implementaci\'on de una pol\'itica de inventario o almacenamiento, a alguna empresa en particular y emplear los m\'etodos descritos en esta tesina.
+%\item[Algoritmos de simulaci\'on] \hfill \\
+%Desarrollar un algoritmo MCMC, para este problema.
+%
+%\item[Funci\'on de p\'erdida] \hfill \\
+%Exploraci\'on de la funci\'on de p\'erdida considerando m\'as variedad de  costos.
+%
+%\end{description}
+%
+
+

@@ -1,0 +1,541 @@
+
+\documentclass[letterpaper, titlepage,openright, twoside,11pt]{book}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{dsfont} % colocar los numeros r
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{anysize}
+%\usepackage{slashbox}
+\usepackage{multirow}
+\marginsize {3.5cm}{2.5cm}{3cm}{2cm}
+\setlength{\paperheight}{24cm} \setlength{\paperwidth}{18cm}
+%\newtheorem{defn}[thm]{Definici\'{o}n}
+\decimalpoint
+\begin{document}
+
+
+
+\chapter{Funciones de utilidad}
+
+\section{Introducci\'on}
+
+En muchos  tanto en la vida real como en la laborar, nos encontramos en situaciones en la cual la toma de decisiones es un aspecto importante, dependiendo del riesgo que implique tomar dicha decisi\'on. El proceso que conlleva una decisi\'on puede realizarse identificando adecuadamente los siguientes aspectos:
+
+\begin{itemize}
+\item Identificar el punto en donde se requiere tomar la decisi\'on.
+\item Establecer una serie de hip\'otesis que pueden ser aceptadas o refutadas mediante el uso de modelos que se ha dise\~nado expl\'icitamente para tal fin.
+\item Conocer las consecuencias de seleccionar las alternativas dado un cierto entorno de la naturaleza pueden medirse en un torno monetario y no monetario.
+\end{itemize}
+
+
+En cualquier entorno de decisi\'on se distinguen los siguientes elementos:
+
+
+\begin{itemize}
+\item Uno o mas decidores que tienen una serie de objetivos y metas definidos
+\item Un conjunto de acciones o alternativas disponibles a los decidores.
+\item Un entorno de posibles resultados por la instrumentaci\'on de acciones.
+\item Una funci\'on que asocian acciones y resultados del entorno.
+\item Un proceso de decisi\'on, que selecciona una o varias acciones, dado un cierto entorno y del grupo de decidores.
+\item Un criterio que marca el proceso de decisi\'on.
+
+\end{itemize}
+Uno de los principales objetivo al realizar un estudio de confiabilidad es tomar decisiones que minimicen costos y pronostique falla de los componentes de inter\'es, si embargo este tema de optimalizad no sreaborda dentro de la literatura cl\'asica de confiabilidad, es com\'un que para pronosticas este hechos se consideren cuantiles adecuados, ya sean bajos o altos, seg\'un el problema que se desee resolver, omitiendo de esta manera consideraciones externas como monetarias u optimzaci\'on de procesos.
+
+Lo ideal serie decidir en forma optima, considerando todos los factores y prever de antemano los costos asociados a esa decisi\'on, para de esa manera enfocar programas que reflejen una reducci\'on de costos.
+
+
+\subsection{Funci\'on de utilidad}
+
+*Por lo general el objetivo ultimo de un an\'alisis estad\'istico es tomar una decisi\'on, como por ejemplo fijar un tiempo de garant\'ia, establecer pol\'iticas de mantenimiento preventivo en un proceso, determinar los puntos mas d\'ebiles den sistema para mejorar la confiabilidad de un proceso, etc\'etera. Obviamente es deseable que estas decisiones est\'en fundamentadas en un buen conocimiento sobre la realidad. A continuaci\'on veremos brevemente los elementos  y procedimientos necesarios para un esquema coherente de toma de decisiones de tipo cuantitativo. Los elementos de un decisi\'on en el contexto de inferencia son
+
+
+\begin{itemize}
+\item[i)] $a\in$ A, las posibles respuesta o decisiones.
+\item[ii)]$\omega\in \Omega$ estados conocidos de la realidad.
+\item[iii)]$u: A\times\Omega\rightarrow R$, una funci\'on que vincula la utilidad de cada $(a,\omega)$, es decir, que eval\'ua las consecuencias de un respuesta $a$ y una situaci\'on resultante de la realidad $\omega$.
+\item[iv)] $p(\omega)$, una especificaci\'on, en la forma de una distribuci\'on de probabilidad, de los conocimientos actuales acerca de los posibles estados de la realidad.
+\end{itemize}
+
+La elecci\'on optima de la respuesta para un problema de inferencias  es aquella $a\in$A que maximiza la utilidad esperada:
+
+\begin{eqnarray}\label{ew}
+u^{*}(a)&=&\int_{\Omega} u(a,\omega)p(\omega)d\omega
+\end{eqnarray}
+Las creencias actuales acerca de los posibles estados de la realidad es l\'ogico que lo represente la densidad posterior predictiva, por lo tanto $p(\omega)\equiv f(t|X)$
+
+De acuerdo a la ecuaci\'on \ref{ew}, la elecci\'on optima del tiempo $a$ es el que maximiza la utilidad esperada:
+
+
+
+\begin{eqnarray*}
+u^{*}(a)\equiv E[u(t,a)]=\int_{0}^{\infty} u(a,t)f(t|X) dt
+\end{eqnarray*}
+
+
+De aqu\'i que para poder obtener una decisi\'on, necesitamos obtener $f(t|X)$. Ademas de ser necesario definir la funci\'on de utilidad $u(a,t)$ que refleje las diferentes consecuencias de tomar la decisi\'on $a$.
+
+Definici\'on formal de un problema de decisi\'on Bernardo\\[0.2cm]
+
+Definici\'on: Un problema de decisi\'on esta definido por los elementos $(\mathcal{E}, \mathcal{C}, \mathcal{A},\leq)$, donde:
+
+\begin{itemize}
+\item[(i)]  $\mathcal{E}$ es una \'algebra de eventos relevantes $E_{j}$;
+\item[(ii)] $\mathcal{C}$ es el conjunto de las consecuencias posibles, $c_j$;
+\item[(iii)] $\mathcal{A}$ es un conjunto de opciones que consiste en un conjunto de funciones que mapean particiones finitas de $\omega$, los eventos exactos en $\mathcal{E}$.
+\item[(iv)] $\leq$ se refiere al orden.
+\end{itemize}
+
+
+Los pares de consecuencias $c_{*}$ y $c^{*}$ son llamadas la peor y mejor opciones en un problema de decisi\'on si para cualquier otra consecuencias $c\in \mathcal{C}$, $c_{*}\leq c_{*}\leq c{*}$, podr\'iamos argumentar esto desde el punto de vista que todos los problemas reales de decisi\'on tienen principalmente estas dos posibles alternativas, un problema de decisi\'on es acotado,
+Definici\'on: Dada una relaci\'on de preferencias $\leq$, la utilidad $u(c)=u(c|c_{*},c^{*})$ de una consecuencias $c$
+, relativa a las consecuencias extremas $c_{*}<c^{*}$, es el n\'muero real $\mu(S)$ asociado con cualquier evento est\'andar $S$, tal que $c\sim\{c^{*}|S,c_{*}|S^{c}\}$, el mapeo $u:\mathcal{C}\rightarrow \mathcal{R}$ es llamada funci\'on de utilidad.\\[0.2cm]
+
+Definici\'on: Para cualesquiera $c_{*}<c^{*}$, $G>0$ y $a=\{c_j| E_j, j \in J\},$
+
+$$\overline{u}(a|c_{*}, c^{*},G)=\sum_{j\in J} u (c_j| c_{*}, c^{*})P(E_j|G).$$
+es la utilidad esperada de la opci\'on $a$, dado $G$, con respecto a las consecuencias extremas  $c_{*}$, $c^{*}$.
+
+%de las notas de crispen:
+%Sa $n_0$ es el numero de transformadores disponibles para reemplazar. Supongamos ademas que cada periodo $\delta$ de meses necesitamos recibir una orden de transformadores. Entonces debemos concentrarnos en el estudio de lo que suceder\'a en un periodo de tiempo $[0,2\delta)$, puesto que debemos reemplazar los que ya se usaron en el periodo $[0,\delta)$ y ademas pronosticar 
+%lo que fallaran en el periodo $[\delta,2\delta)$, para optimizar la funci\'on de perdida y decidir el n\'umero de transformadores que son reemplazados ahora , $t=0, n(\delta)$ y sobre periodos m\'as largos
+%$n^{1}_{(\delta)}, n^{1}_{(\delta)},\cdots,n^{p}_{(\delta)}$ ($p=0,1,\cdots$)
+ 
+
+\subsection{Almacenamiento de transformadores}
+
+Sea $n_0$ el n\'umero de transformadores disponibles para reemplazar. Supongamos ademas que al momento en que falla un transformador, se hace el pedido para tal falla y se espera un periodo de $\delta$ meses hasta que llega la orden, mientras tanto este se reemplazara por de los $n_0$ disponibles. Entonces lo primero que hay que fijas es el valor de $n_0$, algunas veces llamado umbral. Para determinar tal valor, primero necesitamos ver la manera en la cual se comportan los tiempos de vida de los transformadores considerando la muestra MCMC que previamente obtuvimos para simular tiempos de vida y hallar un posible umbral.\\[0.2cm]
+
+A continuaci\'on se presentan algunas gr\'aficas para distintos valores de $n_0$ y $\delta$.
+
+En base a las gr\'aficas anteriores vemos que estableciendo una $n_0$ inicial se observa lo siguiente
+
+
+Podemos observar que el comportamiento de las trayectorias depende en gran medida de $\delta$,
+\begin{itemize}
+\item Si el periodo de espera para recibir un transformador es de 6 meses entonces un $n_0$ adecuado es 8 transformadores almacenados, las trayectorias simuladas correspondientes a estos datos se muestran en la Figura \ref{k9t480d6}
+
+
+%ilustrativas.......................
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k10t480delta6.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=10$, $t=480$ y $\delta=6$}}
+\label{k9t480d6}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k10t480delta7.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=10$, $t=480$ y $\delta=7$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k10t480delta8.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=10$, $t=480$ y $\delta=8$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k10t480delta9.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=10$, $t=480$ y $\delta=9$}}
+\label{k9t480d6}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k10t480delta10.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=10$, $t=480$ y $\delta=10$}}
+\label{k9t480d6}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k12t480delta11.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=12$, $t=480$ y $\delta=11$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{k13t480delta12.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0=13$, $t=480$ y $\delta=12$}}
+\label{k9t480d6}
+\end{figure}
+
+
+\section{Resultados gr\'aficas}
+A contuacion se presentan los resultados obtenidos
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=6, t=480
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta6k1_23sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=6$}}
+\label{k9t480d6}
+\end{figure}
+
+
+Los datos se muestran en la siguiente tabla
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+1029.433  &697.822&  437.725&  251.263 & 131.085 &  62.514 &  27.148 &  11.136 \\	
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	 4.003  &  1.343 &   0.446 &   0.167&    0.028 &   0.040 &   0.000&    0.000\\ 
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+   0.000 &   0.000&    0.000 &   0.000   & 0.000  &  0.000 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=6$.}\label{3}
+\end{table}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=7
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta7t480sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=7$}}
+\label{k9t480d6}
+\end{figure}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+1253.239 & 899.652 & 609.664 & 385.596&  223.191&  118.834 &  59.093  & 26.753\\ 
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	  10.901  &  4.472&    1.427 &   0.603  &  0.151 &   0.069&    0.012 &   0.000 \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+   0.000 &   0.000&    0.000 &   0.000   & 0.000  &  0.000 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=7$.}\label{3}
+\end{table}
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=8
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta8sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=8$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+1483.721 &1118.711  &799.610  &539.082 & 338.785  &200.591  &109.192  & 55.774 \\
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	   25.935  & 11.184  &  4.376  &  1.637   & 0.733   & 0.219   & 0.081  &  0.032  \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+   0.004 &   0.003&    0.000 &   0.000   & 0.000  &  0.000 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=8$.}\label{3}
+\end{table}
+%----------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=9
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta9sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=9$}}
+\label{k9t480d6}
+\end{figure}
+
+
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+1712.065 &1336.411 &1002.302  &713.153 & 478.761  &305.225 & 182.174 & 102.668  \\
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	   51.848 &  24.706  & 10.936 &   4.594 &   1.861 &   0.721   & 0.218   & 0.072   \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+   0.039 &   0.010&    0.002 &   0.000   & 0.000  &  0.000 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=9$.}\label{3}
+\end{table}
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=10
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta10sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=10$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+1944.634 & 1560.876 &1210.653 &  905.893  & 642.491 &  436.292 &  273.966  &  167.279  \\
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	   91.176  &  48.178 &  23.693 &  11.076  &  4.752 &   2.030 &   0.759 &   0.400   \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+   0.069 &   0.026&    0.006 &   0.000   & 0.000  &  0.001 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=10$.}\label{3}
+\end{table}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=11
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta11sumas.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=11$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+2173.671 &1781.718& 1427.693 &1098.406  &  819.975  & 583.561  &391.518 & 248.187   \\
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	151.415 &  84.731 &  46.088 &  23.408 &  10.532 &   5.272 &   2.169 &   0.823    \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+    0.325 &   0.093  &  0.055 &   0.011  & 0.000  &  0.001 &   0.000 & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=11$.}\label{3}
+\end{table}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------
+%Delta=12
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{delta12meses.pdf}
+\end{center}
+\vspace{0.01 cm} \textsl{\caption{$n_0$ toma valores de 1 hasta 23, $t=480$ y $\delta=12$}}
+\label{k9t480d6}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\bf{1} &                   \bf{2} &                   \bf{3} &                   \bf{ 4 }&                    \bf{ 5}&              \bf{ 6} &               \bf{ 7} & \bf{8} \\
+\hline
+2411.039  & 2008.754 &1640.983 &1305.030 &1002.017 & 740.519 & 526.595 & 357.391    \\
+\hline
+\bf{9} &                \bf{ 10}&              \bf{      11} &                   \bf{ 12} &               \bf{      13}&              \bf{14} &  \bf{ 15} & \bf{16 }   \\
+\hline
+	 222.779 & 137.184 &  78.080 &   41.871 &  21.138  &   9.830  &    4.812  &  2.301    \\
+	 \hline
+	
+\bf{17} &     \bf{ 18}&   \bf{19}&   \bf{ 20} &           \bf{   21}&                \bf{  22}  & \bf{23} &  \\
+\hline
+      0.943    &  0.349 &   0.096 &   0.039 &   0.018 &   0.021 &   0.003  & \\
+   \hline
+\end{tabular}
+\caption{Valores obtenidos con $\delta=12$.}\label{3}
+\end{table}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+%\hline
+%
+%
+% &                   1 &                   2 &                    3 &                    4 &                     5&                  6 &                 7   \\
+% \hline
+%6       &1029.433	&	697.822	&	437.725	&	251.263	&	131.085	&	62.514	&	27.148	\\
+%7	&1253.239	&	899.652	&	609.664	&	385.596	&	223.191	&	118.834	&	59.093	\\
+%8	&1483.721	&	1118.711	&	799.61	&	539.082	&	338.785	&	200.591	&	109.192	\\
+%9	&1712.065	&	1336.411	&	1002.302	&	713.153	&	478.761	&	305.225	&	182.174	\\
+%10	&1944.634	&	1560.876	&	1210.653	&	905.893	&	642.491	&	436.292	&	273.966	\\
+%11	&2173.671	&	1781.718	&	1427.693	&	1098.406	&	819.975	&	583.561	&	391.518	\\
+%12	&2411.039	&	2008.754	&	1640.983	&	1305.03	&	1002.017	&	740.519	&	526.595	\\
+%\hline
+%\end{tabular}
+%\caption{Tiempos}\label{3}
+%\end{table}
+%
+%
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+%\hline
+%	&8	&	9	&	10	&	11	&	12	&	13	&	14	&	15	\\
+%	\hline
+%6&	11.136	&	4.003	&	1.343	&	0.446	&	0.167	&	0.028	&	0.04	&	0	\\
+%	
+%7&	26.753	&	10.901	&	4.472	&	1.427	&	0.603	&	0.151	&	0.069	&	0.012	\\
+%8&	55.774	&	25.935	&	11.184	&	4.376	&	1.637	&	0.733	&	0.219	&	0.081	\\
+%9&	102.668	&	51.848	&	24.706	&	10.936	&	4.594	&	1.861	&	0.721	&	0.218	\\
+%10&	167.279	&	91.176	&	48.178	&	23.693	&	11.076	&	4.752	&	2.03	&	0.759	\\
+%11&	248.187	&	151.415	&	84.731	&	46.088	&	23.408	&	10.532	&	5.272	&	2.169	\\
+%12&	357.391	&	222.779	&	137.184	&	78.08	&	41.871	&	21.138	&	9.83	&	4.812	\\
+%\hline
+%\end{tabular}
+%\caption{Tiempos}\label{3}
+%\end{table}
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+%\hline
+%	&	16	&	17	&	18	&	19	&	20	&	21	&	22	&	23	\\
+%	\hline
+%6	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+%7	&	0	&	0	&	0	&	0.001	&	0	&	0	&	0	&	0	\\
+%8	&	0.032	&	0.004	&	0.003	&	0	&	0	&	0	&	0	&	0	\\
+%9	&	0.072	&	0.039	&	0.01	&	0.002	&	0	&	0	&	0	&	0	\\
+%10	&	0.4	&	0.069	&	0.026	&	0.006	&	0.006	&	0	&	0.001	&	0	\\
+%11	&	0.823	&	0.325	&	0.093	&	0.055	&	0.011	&	0	&	0	&	0	\\
+%12	&	2.301	&	0.943	&	0.349	&	0.096	&	0.039	&	0.018	&	0.021	&	0.003	\\
+%\hline
+%\end{tabular}
+%\caption{Tiempos}\label{3}
+%\end{table}
+%
+
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL9t480delta6.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=9$, $t=480$ y $\delta=6$}}
+%\label{k9t480d6}
+%\end{figure}
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL9t480delta7.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=9$, $t=480$ y $\delta=7$}}
+%\label{k9t480d7}
+%\end{figure}
+%
+%
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL12t480delta9.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=12$, $t=480$ y $\delta=9$}}
+%\label{k9t480d9}
+%\end{figure}
+%
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL12t480delta10.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=12$, $t=480$ y $\delta=10$}}
+%\label{k12t480d10}
+%\end{figure}
+%
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL13t480delta11.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=13$, $t=480$ y $\delta=11$}}
+%\label{k13t480d11}
+%\end{figure}
+%
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=10cm,height=10cm]{k_inciaL13t480delta12.pdf}
+%\end{center}
+%\vspace{0.01 cm} \textsl{\caption{$n_0=13$, $t=480$ y $\delta=12$}}
+%\label{k13t480d12}
+%\end{figure}
+%
+%
+\end{itemize}
+\end{document}
+%\newpage \thispagestyle{empty} \cleardoublepage

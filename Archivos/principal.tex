@@ -1,0 +1,126 @@
+\documentclass[letterpaper, titlepage,openright, oneside,11pt]{book}
+ %\documentclass[letterpaper,onepage,openright,titlepage,openany,oneside,11pt]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{dsfont} % colocar los numeros r
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{anysize}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{verbatim}
+%%%%%%%%%%%%%%%%%%%%
+%\cxset{style7}
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+%\usepackage[Bjornstrup]{fncychap}
+
+%%%%%%%%%
+
+%pruebas
+
+
+
+
+%%%%%%%%%%
+\marginsize {3.8cm}{3.5cm}{4cm}{1.6cm}
+\setlength{\paperheight}{24cm} \setlength{\paperwidth}{18cm}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{defn}[thm]{Definici\'{o}n}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposici\'{o}n}
+\def\bibname{Referencias}
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\baselinestretch}{1.1} 
+ \renewcommand{\labelenumi}{\Roman{enumi}.} %interlineado
+\def\chaptername{Cap\'{\i}tulo }
+\decimalpoint
+
+\bibliographystyle{apalike}
+\begin{document}
+%\input{Portada_principal.tex}
+\renewcommand{\tablename}{Tabla}
+\frontmatter
+\thispagestyle{empty}
+%\title{\bf Confiabilidad y algunas pol\'iticas de inventario en transformadores de instrumento.}
+%\author{Maldonado Santiago Alma Delia}
+%\maketitle
+ %\newpage{\pagestyle{empty}
+% \cleardoublepage} 
+
+\input{dedic.tex}
+\input{agrad.tex}
+\tableofcontents
+\newpage
+\pagestyle{fancy}
+\fancyhf{} % delete current setting for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+%
+\fancyhead[LO]{\bfseries\rightmark}%
+\fancyhead[RO,LE]{\thepage} % Nœmeros de p‡gina en las esquinas de los encabezados
+
+
+\mainmatter
+\input{introduccion.tex}
+\input{generales.tex} 
+\input{confia.tex}
+\input{aplicacion.tex}
+%\input{uutilidad2.tex}
+\input{UtilidadFinal.tex}
+\input{conclusiones1.tex}
+%\input{apen.tex}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{riesgo} Peter M. Lee. \textbf{``Bayesian 
+Statistics an introduction''}. A member of the Hodder Headline Group LONDON (2004). \label{PL}
+
+\bibitem{riesgo} William Q. Meeker and Luis A. Escobar. \textbf{``Statistical Metohds for Reliability Data''}. Wiley series in Probability and Mathematical Statistic (1998). \label{me}
+
+\bibitem{Grandell} Michael S. Hamada Alyson G. Wilson, C. Shane Reese Harry F. Martz \textbf{``Bayesian Reliability''}. Springer-Science+Bisiness (2008).\label{BR}
+
+\bibitem{Grandell} J.F. Lawless \textbf{``Statistical models and methods for lifetime data''}. Wiley series in Probability and Mathematical Statistic (1982).\label{law}
+
+
+\bibitem{mi} Ming-Hui Chen, Qi-Man Shao and Joseph G. Ibrahim. textbf{``Monte Carlo Methods in Bayesian Computation''}.
+Springer-Verlag (2000).\label{mi}
+
+
+\bibitem{mi} J. M. Bernardo and A. F. M. Smith \textbf{``Bayesian Theory''}.
+Wiley series in probability and mathematical statistic (1994).\label{BT}
+
+\bibitem{mi} R Develepment Core Team(2010). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. ISBM 3-900051-070, URL \textbf{\verb"http//www.R-project.org".}\label{r}
+
+\bibitem{gibbs} George Casella; Edward 
+I. George \textbf{``Explaining the Gibbs Sampler''}.
+The American Statistician  \&  Vol. 46, No. 3. (Aug ., 1992), pp. 167-174.  World Scientific (2000).\label{gibbs}
+
+\bibitem{gibbs} David B. Hitchcock \textbf{``A History of the Metropolis-Hastings Algorithm''}.
+The American Statistician  \&  Vol. 57, No. 4. (Nov., 2003), pp. 254-257.  \label{MH}
+
+
+\bibitem{gibbs} Siddhartha Chib; Edward Greenberg \textbf{``Understanding the Metropolis-Hastings Algorithm''}.
+The American Statistician  \&  Vol. 49, No. 4. (Nov., 1995), pp. 327-335.  \label{UMH}
+
+\bibitem{gibbs} Norman L. Johson; Samuel Kotz; N. Balakrishnan \textbf{``Continuous Univariate Distribution''}.Volume 1. Second edition
+Wiley series in probability and mathematical statistic (1994).  \label{distribuciones}
+
+\bibitem{f} Geman, S. and D. Geman. \textbf{``Gibbs distribution and Bayesian restoration of images''} . Stochastic relaxation. IEE Transactions on Pattern Analysis and Machine Intelligence 6. (1984), pp 721-741.\label{geman}
+\end{thebibliography}
+\end{document}
+ 
+ 
+ 
+ 

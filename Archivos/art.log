@@ -1,0 +1,827 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  21 JAN 2014 11:10
+entering extended mode
+ \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**art.tex
+(./art.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen103
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks17
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks18
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks26
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/06 v3.8l The Babel package
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/babel/spanish.ldf
+Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count99
+\U@D=\dimen112
+)
+\es@datefmt=\count100
+\es@quottoks=\toks27
+\es@quotdepth=\count101
+Package babel Info: Making " an active character on input line 492.
+Package babel Info: Making . an active character on input line 585.
+Package babel Info: Making < an active character on input line 630.
+Package babel Info: Making > an active character on input line 630.
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks28
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count102
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks29
+\float@box=\box28
+\@float@everytoks=\toks30
+\@floatcapt=\box29
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/anysize/anysize.sty
+Package: anysize 1994/08/13 setting margin sizes
+
+document style option `anysize' loaded
+Michael Salzenberg, Thomas Esser, Dirk Hillbrecht
+Version 1.0, Aug 13, 1994
+\@Leftmargin=\dimen115
+\@Rightmargin=\dimen116
+\@Topmargin=\dimen117
+\@Bottommargin=\dimen118
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen119
+\lightrulewidth=\dimen120
+\cmidrulewidth=\dimen121
+\belowrulesep=\dimen122
+\belowbottomsep=\dimen123
+\aboverulesep=\dimen124
+\abovetopsep=\dimen125
+\cmidrulesep=\dimen126
+\cmidrulekern=\dimen127
+\defaultaddspace=\dimen128
+\@cmidla=\count104
+\@cmidlb=\count105
+\@aboverulesep=\dimen129
+\@belowrulesep=\dimen130
+\@thisruleclass=\count106
+\@lastruleclass=\count107
+\@thisrulewidth=\dimen131
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen132
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2007/08/12 v2.8 Sectioning titles
+\ttl@box=\box30
+\beforetitleunit=\skip58
+\aftertitleunit=\skip59
+\ttl@plus=\dimen133
+\ttl@minus=\dimen134
+\ttl@toksa=\toks31
+\titlewidth=\dimen135
+\titlewidthlast=\dimen136
+\titlewidthfirst=\dimen137
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks32
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks33
+\verbatim@line=\toks34
+\verbatim@in@stream=\read1
+)
+\c@theorem=\count108
+\c@definition=\count109
+\c@thm=\count110
+ (./art.aux
+
+LaTeX Warning: Label `riesgo' multiply defined.
+
+
+LaTeX Warning: Label `mi' multiply defined.
+
+)
+\openout1 = `art.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+ (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen138
+\scratchbox=\box31
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen139
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks36
+) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 53.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 56.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 60.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 60.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+./art.tex:60: Use of \@xfootnotemark doesn't match its definition.
+\DeclareInputText #1#2->\def \reserved@a ##
+                                           1 ${}\def \reserved@b {#2}\ifcat ...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Missing \endcsname inserted.
+<to be read again> 
+                   \csname\endcsname
+l.60 \maketitle
+               
+? 
+./art.tex:60: Use of \@xfootnotemark doesn't match its definition.
+<inserted text> m
+                 acro:->\stepcounter {footnote}\protected@xdef \@thefnmark {...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Use of \@xfootnotemark doesn't match its definition.
+\DeclareInputText #1#2->\def \reserved@a ##
+                                           1 ${}\def \reserved@b {#2}\ifcat ...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Missing \endcsname inserted.
+<to be read again> 
+                   \csname\endcsname
+l.60 \maketitle
+               
+? 
+./art.tex:60: Use of \@xfootnotemark doesn't match its definition.
+<inserted text> m
+                 acro:->\stepcounter {footnote}\protected@xdef \@thefnmark {...
+l.60 \maketitle
+               
+? 
+
+./art.tex:60: Undefined control sequence.
+<argument> ... \begingroup \let \@elt \global \c@ 
+                                                  \csname\endcsname\z@ cl@fo...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Undefined control sequence.
+<argument> ... \@elt \global \c@ \csname\endcsname
+                                                  \z@ cl@footnote\endcsname ...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \maketitle
+               
+? 
+
+./art.tex:60: Undefined control sequence.
+<argument> ... \begingroup \let \@elt \global \c@ 
+                                                  \csname\endcsname\z@ cl@fo...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Undefined control sequence.
+<argument> ... \@elt \global \c@ \csname\endcsname
+                                                  \z@ cl@footnote\endcsname ...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \maketitle
+               
+? 
+
+./art.tex:60: Use of \@rule doesn't match its definition.
+\DeclareInputText #1#2->\def \reserved@a ##
+                                           1 ${}\def \reserved@b {#2}\ifcat ...
+l.60 \maketitle
+               
+? 
+./art.tex:60: Use of \@rule doesn't match its definition.
+<inserted text> m
+                 acro:->\@rule [\z@ ]
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Argument of \language@active@arg~ has an extra }.
+<inserted text> 
+                \par 
+l.60 \maketitle
+               
+? 
+Runaway argument?
+./art.tex:60: Paragraph ended before \language@active@arg~ was complete.
+<to be read again> 
+                   \par 
+l.60 \maketitle
+               
+? 
+./art.tex:60: Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 \maketitle
+               
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Text page 2 contains only floats.
+
+[2] [3] <apriori1.pdf, id=31, 258.9675pt x 148.555pt>
+File: apriori1.pdf Graphic file (type pdf)
+ <use apriori1.pdf>
+Package pdftex.def Info: apriori1.pdf used on input line 177.
+(pdftex.def)             Requested size: 258.96684pt x 148.55463pt.
+
+[4 <./apriori1.pdf>] [5] <app.pdf, id=40, 1084.05pt x 578.16pt>
+File: app.pdf Graphic file (type pdf)
+ <use app.pdf>
+Package pdftex.def Info: app.pdf used on input line 242.
+(pdftex.def)             Requested size: 216.80615pt x 115.62994pt.
+
+<r2meses.pdf, id=41, 1084.05pt x 578.16pt>
+File: r2meses.pdf Graphic file (type pdf)
+ <use r2meses.pdf>
+Package pdftex.def Info: r2meses.pdf used on input line 249.
+(pdftex.def)             Requested size: 216.80615pt x 115.62994pt.
+ [6 <./app.pdf> <./r2meses.pdf>] <pos1.pdf, id=55, 1084.05pt x 578.16pt>
+File: pos1.pdf Graphic file (type pdf)
+ <use pos1.pdf>
+Package pdftex.def Info: pos1.pdf used on input line 275.
+(pdftex.def)             Requested size: 216.80615pt x 115.62994pt.
+
+Overfull \hbox (13.51125pt too wide) in paragraph at lines 275--276
+[][] 
+ []
+
+<pos2.pdf, id=56, 1084.05pt x 578.16pt>
+File: pos2.pdf Graphic file (type pdf)
+ <use pos2.pdf>
+Package pdftex.def Info: pos2.pdf used on input line 280.
+(pdftex.def)             Requested size: 216.80615pt x 115.62994pt.
+
+Overfull \hbox (33.84198pt too wide) in paragraph at lines 280--281
+[][] 
+ []
+
+<logObj1.pdf, id=57, 1084.05pt x 578.16pt>
+File: logObj1.pdf Graphic file (type pdf)
+ <use logObj1.pdf>
+Package pdftex.def Info: logObj1.pdf used on input line 290.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+<serie.pdf, id=58, 1084.05pt x 578.16pt>
+File: serie.pdf Graphic file (type pdf)
+ <use serie.pdf>
+Package pdftex.def Info: serie.pdf used on input line 297.
+(pdftex.def)             Requested size: 271.01184pt x 144.53964pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<ConPos.pdf, id=59, 1084.05pt x 578.16pt>
+File: ConPos.pdf Graphic file (type pdf)
+ <use ConPos.pdf>
+Package pdftex.def Info: ConPos.pdf used on input line 333.
+(pdftex.def)             Requested size: 271.01184pt x 144.53964pt.
+
+<Rpos.pdf, id=60, 1084.05pt x 578.16pt>
+File: Rpos.pdf Graphic file (type pdf)
+ <use Rpos.pdf>
+Package pdftex.def Info: Rpos.pdf used on input line 343.
+(pdftex.def)             Requested size: 271.01184pt x 144.53964pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./pos1.pdf> <./pos2.pdf>] [8 <./logObj1.pdf> <./serie.pdf> <./ConPos.pdf>]
+<final.pdf, id=97, 661.47125pt x 241.90375pt>
+File: final.pdf Graphic file (type pdf)
+ <use final.pdf>
+Package pdftex.def Info: final.pdf used on input line 357.
+(pdftex.def)             Requested size: 463.02672pt x 169.33147pt.
+
+Overfull \hbox (56.4369pt too wide) in paragraph at lines 357--358
+[][]
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./Rpos.pdf>] [10 <./final.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 393--396
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 438--440
+
+ []
+
+<tr1.pdf, id=113, 434.62375pt x 220.825pt>
+File: tr1.pdf Graphic file (type pdf)
+ <use tr1.pdf>
+Package pdftex.def Info: tr1.pdf used on input line 444.
+(pdftex.def)             Requested size: 434.62268pt x 220.82445pt.
+
+Overfull \hbox (28.03287pt too wide) in paragraph at lines 444--445
+ [] 
+ []
+
+[12 <./tr1.pdf>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+
+ []
+
+<poA.pdf, id=123, 1084.05pt x 578.16pt>
+File: poA.pdf Graphic file (type pdf)
+ <use poA.pdf>
+Package pdftex.def Info: poA.pdf used on input line 508.
+(pdftex.def)             Requested size: 379.42319pt x 202.35902pt.
+
+Overfull \hbox (2.0937pt too wide) in paragraph at lines 519--536
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (17.09004pt too wide) in paragraph at lines 543--559
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14 <./poA.pdf>] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 599--601
+
+ []
+
+<utilpeso01delta61.pdf, id=140, 1084.05pt x 578.16pt>
+File: utilpeso01delta61.pdf Graphic file (type pdf)
+
+<use utilpeso01delta61.pdf>
+Package pdftex.def Info: utilpeso01delta61.pdf used on input line 633.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<utilpeso01delta8.pdf, id=141, 1084.05pt x 578.16pt>
+File: utilpeso01delta8.pdf Graphic file (type pdf)
+
+<use utilpeso01delta8.pdf>
+Package pdftex.def Info: utilpeso01delta8.pdf used on input line 673.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16] <utipeso05delta6.pdf, id=145, 1084.05pt x 578.16pt>
+File: utipeso05delta6.pdf Graphic file (type pdf)
+
+<use utipeso05delta6.pdf>
+Package pdftex.def Info: utipeso05delta6.pdf used on input line 708.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17 <./utilpeso01delta61.pdf> <./utilpeso01delta8.pdf>]
+<uA8.pdf, id=161, 1084.05pt x 578.16pt>
+File: uA8.pdf Graphic file (type pdf)
+ <use uA8.pdf>
+Package pdftex.def Info: uA8.pdf used on input line 761.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (27.0876pt too wide) in paragraph at lines 770--786
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<uA6puntouno.pdf, id=162, 1084.05pt x 578.16pt>
+File: uA6puntouno.pdf Graphic file (type pdf)
+ <use uA6puntouno.pdf>
+Package pdftex.def Info: uA6puntouno.pdf used on input line 791.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<puntocinco.pdf, id=163, 1084.05pt x 578.16pt>
+File: puntocinco.pdf Graphic file (type pdf)
+ <use puntocinco.pdf>
+Package pdftex.def Info: puntocinco.pdf used on input line 822.
+(pdftex.def)             Requested size: 325.21751pt x 173.44933pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18 <./utipeso05delta6.pdf>] [19 <./uA8.pdf>] [20 <./uA6puntouno.pdf> <./puntoc
+inco.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 880--882
+
+ []
+
+[21] [22]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 932.
+
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+[23] (./art.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4090 strings out of 493633
+ 52376 string characters out of 3143378
+ 132623 words of memory out of 3000000
+ 7264 multiletter control sequences out of 15000+200000
+ 26017 words of font info for 73 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 38i,12n,43p,1366b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></u
+sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/l
+ocal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
+/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
+ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
+11/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2011/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2011/te
+xmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2011/texmf-
+dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2011/texmf-dist/fon
+ts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2011/texmf-dist/fonts
+/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2011/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1
+/public/cm-super/sfrm1728.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
+ublic/cm-super/sftt1000.pfb>
+Output written on art.pdf (23 pages, 1258930 bytes).
+PDF statistics:
+ 292 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+

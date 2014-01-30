@@ -1,0 +1,16 @@
+{
+    "contents" : "rm(list=ls(all=TRUE))\ntiempos=NULL\nk_inicial=1\nt=300\ndelta=8\nfor (i in 1:200)\n{\n  tiempos[i]=round(rweibull(1,shape=3,scale=250),0)\n}\ntiempos=sort(tiempos)     #Para facilitar los calculos ordenamos los tiempos de vida.\ntam=length(tiempos)-1     #tamaño del vector de tiempos de vida\nk=k_inicial\npila<-c()                 #En la variable pila se almacenaran los tiempos para los cuales tendremo                       #transformador que pedimos, si t=10 entonces pila=10 + delta.\ntiem=c()                  #Almacena todos los tiempos de vida menores o iguales a tiempo                    #obtenido\nj=1\nh=1\nsumas=NULL\nwhile(tiempos[h]<=t)\n{\n  \n  tiem[j]=tiempos[h]\n  pila[j]=tiem[j]+delta\n  aux=tiempos[h]\n  tiempos[h]=rweibull(1,shape=1,scale=5)+aux #reemplazo por un nuevo transformador.\n  tiempos=tiempos[1:tam]           \n  tiempos=round(sort(tiempos),0) #vuelvo a ordenar los tiempos de falla\n  j=j+1\n  k=k-1\n}\n\npila=c(pila,0)\npil=c()\ns=1\nwhile(pila[s]<=t && pila[s]!=0)\n{\n  pil[s]=pila[s]\n  k=k+1 \n  s=s+1\n}\n\n#para hacer la grafica\n\nk=k_inicial;x=c();y=c();r=1\nx[r]=0;y[r]=k;r=2;pil=c(pil,0);tiem=c(tiem,0)\ncont1=1;cont2=1;r=2\n\nwhile( tiem[cont1]!=0  || pil[cont2]!=0)\n{\n  if ((tiem[cont1]<pil[cont2] && tiem[cont1]!=0 && pil[cont2]!=0) || (tiem[cont1]!=0 && pil[cont2]==0))\n  {\n    x[r]=x[r+1]=tiem[cont1]\n    y[r]=k;k=k-1;y[r+1]=k\n    cont1=cont1+1;r=r+2\n  }\n  \n  if ((tiem[cont1]>pil[cont2] && tiem[cont1]!=0 & pil[cont2]!=0) || (tiem[cont1]==0 && pil[cont2]!=0))\n  {\n    x[r]=pil[cont2]\n    x[r+1]=pil[cont2]\n    y[r]=k;k=k+1\n    y[r+1]=k\n    cont2=cont2+1;r=r+2  \n  }\n  \n  if (tiem[cont1]==pila[cont2] && tiem[cont1]!=0 &&  pil[cont2]!=0 )\n  {\n    x[r]=tiem[cont1]\n    x[r+1]=tiem[cont1]\n    y[r]=k\n    y[r+1]=k\n    cont1=cont1+1;cont2=cont2+1;r=r+2 \n  }   \n}\n\n####################################################################\n#OBTENER EL AREA PARA LOS VALORES NEGATIVOS\nx1=c(x)\ny2=c(y)\ncuenta=3\nsuma=0\nwhile(cuenta<length(x1))\n{\n  if (y2[cuenta]<0)\n  {\n    suma=suma + (x1[cuenta+1]-x1[cuenta])*(abs(y2[cuenta]))\n    \n  }\n  cuenta=cuenta+2\n  #else { cuenta=cuenta+2 }\n}\n\n####################################################################\nsumas[1]=suma\njj=1\n#ks[jj]=k\n####################################################################\nplot(x,y,type=\"l\",main=\"Almacenamiento de transformadores\",xlab=\"Tiempos\",ylab=\"Número de transformadores\")\nabline(0,0,col=\"red\")",
+    "created" : 1366308095247.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3674647696",
+    "id" : "B60C2C62",
+    "lastKnownWriteTime" : 140458315481088,
+    "path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

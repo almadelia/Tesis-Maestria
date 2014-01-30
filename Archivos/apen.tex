@@ -1,0 +1,536 @@
+\newpage \thispagestyle{empty} \cleardoublepage
+\appendix
+\addcontentsline{toc}{chapter} {Ap\'endice}
+
+\chapter{C\'odigos}
+
+\noindent A continuaci\'on se muestran los c\'odigos implementados en R, para la obtenci\'on de las distribuciones a priori, posterior y las simulaciones de las funciones de p\'erdida.
+\section{Distribuci\'on a Priori}
+
+
+\noindent El c\'odigo siguiente fue el utilizado para establecer los par\'ametros de las distribuciones predictivas.
+
+\begin{verbatim}
+#Establecer los parametros de las distribuciones a prioris
+a=log(0.05)/log(0.95) #Ecuaciones que se obtiene al resolver 
+el sistema de cuantiles
+betae=log(a)/log(8)
+w=(-log(0.95))^(1/betae)
+eta=60/w 
+x=seq(0,600,2)
+y=dweibull(x,shape=betae,scale=eta)
+qweibull(0.05,shape=betae,scale=eta)
+qweibull(0.95,shape=betae,scale=eta)
+
+plot(x,y,xlim=c(0,600),type="l",yaxs="i",xaxs="i",
+main="Distribuci—n predictiva a priori,xlab="Tiempo",ylab="",
+cex.lab=1.5, cex.main=1.5,col="red")
+
+#Buscamos los valores apropiados para a1,a2,b1,b2
+a1s=seq(5,25,.1)
+a2s=seq(1,14,.1)
+#Las siguiente matrices almacenan los valores que se
+  #obtienen al variar a1 y a2
+etas<-matrix(c(rep(0,length(a1s)*length(a2s))),
+nrow=length(a1s),ncol=length(a2s))
+betas<-matrix(c(rep(0,length(a1s)*length(a2s))),
+nrow=length(a1s),ncol=length(a2s))
+q5=matrix(c(rep(0,length(a1s)*length(a2s))),
+nrow=length(a1s),ncol=length(a2s))
+q95<-matrix(c(rep(0,length(a1s)*length(a2s))),
+nrow=length(a1s),ncol=length(a2s))
+
+#q5,q95, son las diferencias de los  valores de los cuantiles, 
+#para las densidades que se van obteniendo con los que se 
+#buscan. Recordermos que se desea que el cuantil  0.05 sea 
+#60 meses  y el cuantil 0.95 sea 480 meses 
+
+for (i in 1:length(a1s))
+{
+  for (j in 1:length(a2s))
+{
+  a1=a1s[i]
+  a2=a2s[j]
+  b1=betae/a1
+  b2=eta/a2  
+  beta1=rgamma(1,shape=a1,scale=b1)
+  betas[i,j]=beta1
+  eta1=rgamma(1,shape=a2,scale=b2)
+  etas[i,j]=eta1
+  y=dweibull(x, shape=beta1, scale=eta1)
+  q5[i,j]=abs(60-qweibull(0.05,shape=beta1,scale=eta1))
+  q95[i,j]=abs(480-qweibull(0.95,shape=beta1,scale=eta1))
+  
+  }
+}
+
+La idea es seleccionar la pareja (a1,a2), que cumpla con las condiciones 
+establecida de los cuantiles, es decir que los valores de la matriz q5  y q95 m’nimos.
+\end{verbatim}
+
+\noindent Para obtener la rejilla propuesta para los valores de b\'usqueda de \verb"a1" y \verb"a2", se eligieron varios puntos al azar propuestos y espef\'icos para  \verb"a1" y \verb"a2", una vez observado por donde se ten\'ian puntos plausibles para estos valores, se procedi\'o a especificar la rejilla, y a realizar el c\'odigo mostrado, eligiendo  a \verb"a1=25" y \verb"a2=12" como una pareja adecuada. Posteriormente se obtuvo la funci\'on de riesgo, que permit\'ia ver si estos valores segu\'ian siendo adecuados.  Con el siguiente c\'odigo se obtuvo la funci\'on de riesgo, observando as\'i que los valores fijados para  \verb"a1" y \verb"a2" modelaba razonablemente bien la informaci\'on a priori.
+
+\begin{verbatim}
+hazard=function(eta,beta,x)
+{
+  beta/eta*(x/eta)^(beta-1)  
+}
+
+ a1=25
+  a2=10
+  b1=beta/a1
+  b2=eta/a2  
+  beta1=rgamma(1,shape=a1,scale=b1)
+  eta1=rgamma(1,shape=a2,scale=b2)
+  y=sort(rweibull(1000, shape=beta1, scale=eta1))
+  riesgo=hazard(eta1,beta1,y)
+  plot(y,riesgo,xlim=c(-5,600),type="l",col="red",yaxs="i", xaxs="i",
+       main="Funci—n de riesgo",xlab="Tiempo",ylab="Riesgo",
+       cex.lab=1.5,cex.main=2)
+  grid()
+\end{verbatim}
+
+\section{Distribuci\'on Posterior}
+\noindent Una vez establecidos los valores de $a_1$ y $a_2$ que determinaban de manera expl\'icita los valores de las distribuciones a prioris propuestas, el siguiente paso es obtener la muestra de la distribuci\'on posterior, dado que  result\'o ser una expresi\'on compleja. El c\'odigo implementado para obtener esta muestra se describe a continuaci\'on.
+\begin{verbatim}
+#------------------------------------------------------------------
+#MUESTRA T-WALK PARA LOS DATOS 
+#------------------------------------------------------------------
+rm(list=ls(all=TRUE))
+library(Rtwalk) #Libreria para el algoritmo MCMC
+
+#Leemos la base de datos:
+####################################################################
+dato=read.csv(file.choose(),header=TRUE)
+dato=as.matrix(dato)
+n=length(dato)/2
+
+#Valores obtenidos con los codigos anteriores:
+betae=1.9   
+eta=273.9
+a1=25
+a2=10
+b1=betae/a1
+b2=eta/a2
+#########################################################################
+#Las funciones que se implementan a continuacion son
+ #necesarias para aplicar el algoritmo t-walk (MCMC).
+
+#inicializamos la funcion: 
+WeibullnitG <- function() 
+{
+  npars <<- 2 ## parametros :beta y eta  
+  #Estadisticos suficientes
+  r1<<-sum(1-dato[,2])
+  r2<<-0
+  for (i in 1:n)
+  {
+    if (dato[i,2]==0)
+    {
+      r2<<-r2+log(dato[i,1]) 
+    }   
+  }
+}
+
+sutnbG=function(be,eta)
+{
+  aux=0
+  for (i in 1:n)
+  {
+    aux=aux+(dato[i,1]/eta)^(be)  
+  } 
+  aux 
+}
+### Escribimos la -logposterior, ya que es uno de los parametros
+#que recibe la funcion t-walk a utilizar:
+WeibPostG <- function(x) 
+{
+  be <- x[1]
+  eta <-x[2]
+  aux=-r1*(log(be)-be*log(eta))+(1-be)*r2+sutnbG(be,eta)+a1*log(b1)+
+  log(gamma(a1))+(1-a1)*log(b1)+
+  a2*log(b2)+log(gamma(a2))+(1-a2)*log(eta)+be/b1+eta/b2
+  return(aux)
+  }
+
+#Especificamos el soporte
+WeibsuppG <- function(x) 
+{
+  
+  (x[1]>0 & x[2]>0)
+}
+#Generamos un punto inicial
+WeibX0G <- function(x) 
+  { c( rgamma(1,shape=a1,scale=b1), rgamma(1, shape=a2, scale = b2))}
+
+####################################################################
+WeibullnitG()
+#Runtwalk es la funcion que permite obtener la muestra
+#de la distribucion MCMC
+info <- Runtwalk(dim=npars, Tr=9000000,  Obj=WeibPostG, Supp=WeibsuppG, 
+x0=WeibX0G(), xp0=WeibX0G())
+
+par(mfrow=c(1,2))
+#Histograma para beta
+PlotHist(info, par=1, from=1000, freq=FALSE,xlab=expression(beta),
+main="Histograma muestra MCMC", cex.lab=2, cex.main=1.5,ylab="")
+
+#Histograma para eta
+PlotHist(info, par=2, from=1000, freq=FALSE,xlab=expression(eta),
+main="Histograma muestra MCMC", cex.lab=2, cex.main=1.5,ylab="")
+#Guardamos la salida:
+SaveOutput(info,file="buena9000000.csv")
+
+#Para la muestra de Tr=9000000
+#los resultados obtenidos:
+
+Ana(info) #Analisis de correlacion
+#Ratio of moved coodinates per it=
+#  0.2744085 0.5760303 0.03655092 0.1166136 
+#dim= 2 AcceptanceRatio= 0.4194968 MAPlogPost= -593.5536
+ IAT= 39.77579 IAT/dim= 19.8879 
+\end{verbatim}
+Es importante mencionar que \verb"IAT" es el indice de autocorrelaci\'on entre los datos de la muestra.  \verb"IAT=39.7" indica que la m\'inima correlaci\'on entre la muestra se da cada 40 datos.\\[0.2cm]
+
+\noindent Para obtener la funci\'on de riesgo, densidad, distribuci\'on acumulada t confiabilidad posterior se emple\'o el siguiente c\'odigo.
+\begin{verbatim}
+#Lectura de la muestra
+salida=read.csv(file.choose(),header=TRUE) #muestra MCMC para beta , eta
+salida=data.matrix(salida)
+M=length(salida)/2;M
+
+pdfPosterior=function(x)
+{
+  ma=0  
+  for (i in 1:M)
+  {
+    ma=ma+ dweibull(x,shape=salida[i,1],scale=salida[i,2])
+  }
+  
+  return(ma/M)
+  
+}
+
+secuencia=seq(0.1,800,1)
+yy=pdfPosterior(secuencia)
+plot(secuencia,yy,type="l",main="Densidad predictiva posterior",
+ cex.lab=1.5, cex.main=1.5, xlab="Tiempos",ylab="")  #densidad `posterior
+grid()
+
+
+cdfPosterior<-function(x)
+{
+  www=0
+  for (k in 1:M) 
+  {
+    www=www + pweibull(x,shape=salida[k,1],scale=salida[k,2])
+  }
+  return(www/M)
+}
+
+zz=cdfPosterior(secuencia)
+plot(secuencia,1-zz,type="l",main="Confiabilidad 
+Posterior",xlab="Tiempo",ylab="", cex.lab=1.5, cex.main=1.5)
+ #funcion de confiabilidad
+grid()
+
+
+hazard=function(eta,beta,x)
+  {
+  beta/eta*(x/eta)^(beta-1)  
+  }
+
+
+riesgo<-function(x)
+{
+  aa=0
+ for  (i in 1:M)
+ {
+   aa=hazard(salida[i,2],salida[i,1],x)+aa 
+ }
+  
+  return(aa/M)
+}
+  
+risk=riesgo(secuencia)
+plot(secuencia,risk,type="l",main="Funcion de 
+Riesgo",xlab="Tiempo",ylab="", cex.lab=1.5, cex.main=1.5)
+grid()
+\end{verbatim}
+
+\section{P\'erdida Esperada}
+\noindent A continuaci\'on se describe el c\'odigo utilizado en R, para obtener la p\'erdida esperada mediante simulaciones. El c\'odigo  descrito se utiliz\'o para el c\'aculo de la p\'erdida espera considerando la pol\'itica A, con el se obtuvieron las gr\'aficas y Tablas del Capitulo 4. Una peque\~na modificaci\'on  sirve para obtener los resultados considerando las pol\'iticas B y C.
+\begin{verbatim}
+
+#-----------------------------------------------------------------------------
+                         #FUNCION DE UTILIDAD#
+#-----------------------------------------------------------------------------
+#Se carga la base de datos:
+salida=read.csv(file.choose(),header=TRUE) salida=as.matrix(salida)
+
+#MUESTRA MCMC SELECCIONADA
+#Se aceptado  cada 40 datos , selecciono una muestra de 200.
+ac=40
+i=1
+j=500000
+bs=c() # almacena los valores de forma
+es=c() # almacena los valores de escala
+while (i<=200)
+{
+  j=ac+j
+  bs[i]=salida[j,1]
+  es[i]=salida[j,2]
+  i=i+1 
+}
+
+#--------------------------------------------------------------------------
+#                                 DATOS INICIALES
+inicia=seq(1,50,1)  # Numero de transformadores al inicio de cada periodo
+deltas=c(6,8,12)    # Meses de espera para recibir un transformador
+#--------------------------------------------------------------------------
+promedio=matrix(c(rep(0,length(deltas)*length(inicia))),
+nrow=length(deltas),ncol=length(inicia)) 
+#almacena los promedios de las areas negativas, es decir, 
+la p\'erdida esperada.
+
+for (vdeltas in 1:length(deltas))
+{
+delta=deltas[vdeltas]  # periodo de espera para recibir el 
+siguiente transformador
+
+for (has in 1:length(inicia))
+{
+p=1000 #simulaciones de trayectorias
+k_inicial=inicia[has] # numero de transformadores al inicio del periodo.
+t=480 # tiempo de observacion
+#############################################################
+
+#SIMULAMOS TIEMPOS DE VIDA USANDO LA MUESTRAS MCMC
+
+tiempos=NULL
+for (i in 1:200) #Generamos los tiempos de vida
+{
+  tiempos[i]=round(rweibull(1,shape=bs[i],scale=es[i]),0)
+}
+tiempos=sort(tiempos)     #Para facilitar los calculos ordenamos los 
+tiempos de vida.
+tam=length(tiempos)-1     #Longitud del vector de tiempos de vida
+k=k_inicial
+pila<-c()                     #En la variable pila se almacenaran los 
+                              #tiempos para los cuales tendremos los
+                              #transformador que pedimos, si t=10 entonces
+                              #pila=10 + delta.
+tiem=c()                     #Almacena todos los tiempos de vida 
+                               #menores o iguales al tiempo   de
+                               #observacion                                                    
+j=1
+h=1
+sumas=NULL # almacenara la perdida en cada simulaci\'on considerada.
+
+while(tiempos[h]<=t) # Este while permite seleccionar todos
+ los tiempos
+                      # menores que el t de observacion
+{ 
+  tiem[j]=tiempos[h]
+  pila[j]=tiem[j]+delta
+  aux=tiempos[h]
+  tiempos[h]=rweibull(1,shape=bs[h],scale=es[h])+aux 
+  #reemplazo por un nuevo transformador.
+  tiempos=tiempos[1:tam]           
+  tiempos=round(sort(tiempos),0) #vuelvo a ordenar los tiempos de falla
+  j=j+1
+  k=k-1
+}
+
+pila=c(pila,0)
+pil=c()
+s=1
+while(pila[s]<=t && pila[s]!=0) # Este while permite seleccionar 
+todos los tiempos de 
+                      # reemplazo menores que el t de observacion
+{
+  pil[s]=pila[s]
+  k=k+1 
+  s=s+1
+}
+
+#Almacenamos la trayectoria de la forma de comportarse del numero de 
+#transformadores a lo largo del tiempo de observacion
+#el vector x almacena el tiempo y el vector y 
+el numero de transformadores
+# a ese tiempo.
+
+k=k_inicial;x=c();y=c();r=1
+x[r]=0;y[r]=k;r=2;pil=c(pil,0);tiem=c(tiem,0)
+cont1=1;cont2=1;r=2
+
+#Este while analiza todos los posibles casos, de lo que ocurre primero
+#un tiempo de falla o un tiempo de reemplazo.
+while( tiem[cont1]!=0  || pil[cont2]!=0)
+{
+  if ((tiem[cont1]<pil[cont2] && tiem[cont1]!=0 && pil[cont2]!=0) ||
+   (tiem[cont1]!=0 && pil[cont2]==0))
+  {
+    x[r]=x[r+1]=tiem[cont1]
+    y[r]=k;k=k-1;y[r+1]=k
+    cont1=cont1+1;r=r+2
+  }
+  
+  if ((tiem[cont1]>pil[cont2] && tiem[cont1]!=0 & pil[cont2]!=0) || 
+  (tiem[cont1]==0 && pil[cont2]!=0))
+  {
+    x[r]=pil[cont2]
+    x[r+1]=pil[cont2]
+    y[r]=k;k=k+1
+    y[r+1]=k
+    cont2=cont2+1;r=r+2  
+  }
+  
+  if (tiem[cont1]==pila[cont2] && tiem[cont1]!=0 &&  pil[cont2]!=0 )
+  {
+    x[r]=tiem[cont1]
+    x[r+1]=tiem[cont1]
+    y[r]=k
+    y[r+1]=k
+    cont1=cont1+1;cont2=cont2+1;r=r+2 
+  }   
+}
+
+####################################################################
+#OBTENER EL AREA PARA LOS VALORES NEGATIVOS, es decir
+#calcula la p\'erdida para cada trayectoria
+x1=c(x)
+y2=c(y)
+cuenta=3
+suma=0
+while(cuenta<length(x1))
+  {
+    if (y2[cuenta]<0)
+    {
+      suma=suma + (x1[cuenta+1]-x1[cuenta])*(abs(y2[cuenta]))
+      
+    }
+    cuenta=cuenta+2
+  }
+
+####################################################################
+sumas[1]=suma
+#para considerar la pol’tica B:  sumas[1]=suma+k_inicial*peso
+#donde peso=0.001,0.1,0.5, es la proporcion del costo de quedarnos 
+#sin transformadores que representa el costo de almacenamiento.
+jj=1
+ks[jj]=k
+####################################################################
+#plot(x,y,type="l",main="Almacenamiento de transformadores",
+xlab="Tiempos",ylab="Numero de transformadores",ylim=c(-5,k_inicial))
+#abline(0,0,col="red")
+###################################################################
+#El codigo siguiente es igual que el anterior, se repite hasta 
+#completar las p simulaciones.
+for (jj in 2:p)
+{  
+  tiempos=NULL
+  for (i in 1:200)
+  {
+    tiempos[i]=round(rweibull(1,shape=bs[i],scale=es[i]),0)
+  }
+    tiempos=sort(tiempos) #
+    tam=length(tiempos)-1       k=k_inicial
+   pila<-c()               
+   h=1
+  while(tiempos[h]<=t)
+  { 
+    tiem[j]=tiempos[h]
+    pila[j]=tiem[j]+delta
+    aux=tiempos[h]
+    tiempos[h]=rweibull(1,shape=bs[h],scale=es[h])+aux
+    tiempos=tiempos[1:tam]           
+    tiempos=round(sort(tiempos),0)
+    j=j+1
+    k=k-1
+  }
+  pila=c(pila,0)
+  pil=c()
+  s=1
+  while(pila[s]<=t && pila[s]!=0)
+  {
+    pil[s]=pila[s]
+    k=k+1 
+    s=s+1
+  }  
+  k=k_inicial;x=c();y=c();r=1
+  x[r]=0;y[r]=k;r=2;pil=c(pil,0);tiem=c(tiem,0)
+  cont1=1;cont2=1;r=2
+  while( tiem[cont1]!=0  || pil[cont2]!=0)
+  {
+    if ((tiem[cont1]<pil[cont2] && tiem[cont1]!=0 && pil[cont2]!=0) ||
+     (tiem[cont1]!=0 && pil[cont2]==0))
+    {
+      x[r]=x[r+1]=tiem[cont1]
+      y[r]=k;k=k-1;y[r+1]=k
+      cont1=cont1+1;r=r+2
+    }
+    
+    if ((tiem[cont1]>pil[cont2] && tiem[cont1]!=0 & pil[cont2]!=0) || 
+    (tiem[cont1]==0 && pil[cont2]!=0))
+    {
+      x[r]=pil[cont2]
+      x[r+1]=pil[cont2]
+      y[r]=k;k=k+1
+      y[r+1]=k
+      cont2=cont2+1;r=r+2  
+    }
+    
+    if (tiem[cont1]==pila[cont2] && tiem[cont1]!=0 &&  pil[cont2]!=0 )
+    {
+      x[r]=tiem[cont1]
+      x[r+1]=tiem[cont1]
+      y[r]=k
+      y[r+1]=k
+      cont1=cont1+1;cont2=cont2+1;r=r+2 
+    }   
+  }
+  x1=c(x)
+  y2=c(y)
+  cuenta=3
+  suma=0
+  costo=600
+  while(cuenta<length(x1))
+  {
+    if (y2[cuenta]<0)
+    {
+      suma=suma + (x1[cuenta+1]-x1[cuenta])*(abs(y2[cuenta]))*costo
+    }
+    cuenta=cuenta+2
+  }
+  
+  sumas[jj]=suma 
+}
+promedio[vdeltas,has]=mean(sumas)
+} #fin for de has que hace variar los periodos
+} # fin for de vdeltas que hace variar las deltas
+
+#Para graficar:
+inicia=seq(1,23,1)
+par(lab=c(20,10,10))
+plot(inicia,promedio[2,],pch=16,col="red",
+xlab="Transformadores iniciales",ylab="")
+grid()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{verbatim}
+%\end{document}

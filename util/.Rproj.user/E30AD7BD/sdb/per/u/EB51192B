@@ -1,0 +1,16 @@
+{
+    "contents" : "\naño<-seq(1959, 1984, 1);año\nCaptura<-c(62459, 79677, 72724, 34948, 69742, 64461, 99187, 108919, 22674, 165512, 117705, 111561, 126296, 103374, 80429, 73389, 44174, 24283, 17604, 14718, 27940, 19990, 24344, 31605,28818, 25452);Captura\nEsfuerzo<-c(64912, 93291, 77831, 28600, 42409, 53072, 82366, 82064, 13255, 190270, 128611, 128392, 175591, 104717, 157852, 90768, 49151, 28263, 19829, 15715, 22649, 20358, 20016, 21589, 18158, 18517);Esfuerzo\nCPUE<-Captura/Esfuerzo;CPUE\n\n\nBt<-function(t,vector)\n{  \n  a=vector[1]\n  b=vector[2]\n  B_0=vector[3]\n  n=vector[4]\n  aux=(a/(b))-(a/b)-B_0^(1-n)*exp(-b*(1-n)*t)\n  regresa=aux^(1/(1-n))\n  return(regresa)\n}\n\njunta<-function(vectores,t)\n{\n  vector=vectores[1:4]\n  i=vectores[5]\n  q=vectores[6]\n  return(q*Esfuerzo[i]*Bt(t,vector)) \n}\n\n\nobjetivo<-function(vector,q)\n{\n  suma=0\n  c_i=0\n  for (i in 1:(length(año)-1))\n  {\n    c_i=integrate(junta,lower=año[i], upper=año[i+1], vectores=c(vector,i,q))$value \n    suma=(Captura[i]-c_i)^2 +suma\n  }\n  \n  return(suma)\n}\n\nvector=c(1,3,4,2)\nq=8\nobjetivo(vector,q)\ninicial=c(vector,q)\nnlminb(inicial,objetivo)\n\n\n\n\n#generar un vector incial:\n#generar numeros aleatorios\n\n\n\nf2 <- function (t, z) {\n  exp(-t*z)\n}\nint2 <- function (z) { \n  integrate(f2,  lower=0, upper=Inf, z=z)$value \n}\n\n\nint2(1)\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1367874278051.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "350373747",
+    "id" : "EB51192B",
+    "lastKnownWriteTime" : 8391665651642531840,
+    "path" : null,
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
